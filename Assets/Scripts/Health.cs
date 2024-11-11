@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth;
-    [HideInInspector] public int currentHealth;
+    public int maxHealth;// đây là đầy máu, đặt trong inspector
+    [HideInInspector] public int currentHealth;// [HideInInspector] public là vẫn public nhưng bị ẩn đi trong inspector
 
     public HealthBar healthBar;
 

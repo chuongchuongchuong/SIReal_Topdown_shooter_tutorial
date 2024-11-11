@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -45,8 +45,8 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && dashTime <= 0)
         {
             animator.SetBool("Roll", true);
-            moveSpeed += dashBoost;
-            dashTime = DashTime;
+            moveSpeed += dashBoost;// khi lộn nhào thì tốc đi sẽ nhanh hơn
+            dashTime = DashTime;// DashTime bên ngoài inspector là 0.25, lệnh này có nghĩa là đang đổi dashTime>0
             once = true;
         }
 
@@ -56,13 +56,13 @@ public class Player : MonoBehaviour
             moveSpeed -= dashBoost;
             once = false;
         }
-        else
+        else // nếu như không dùng dash(lộn nhào) thì sẽ cooldown thời gian có thể lộn nhào
         {
-            dashTime -= Time.deltaTime;
+            dashTime -= Time.deltaTime; 
         }
 
         // Rotate Face
-        if (moveInput.x != 0)
+        if (moveInput.x != 0) // chỗ này chỉ là quay đi quay lại con nhân vật, có thể sử dụng flipX thế vào
             if (moveInput.x < 0)
                 characterSR.transform.localScale = new Vector3(-1, 1, 0);
             else
